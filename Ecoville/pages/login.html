@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="../imgs/LogoLandingPage.png" type="image/x-icon">
+    <title>EcoJoinville - Login</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(224 236 231);
+        }
+
+        main {
+            background-color: #fefefe;
+            width: 750px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            height: 100%;
+            /* This can be adjusted if needed */
+            ;
+            border-radius: 10px;
+            font-family: "Roboto", sans-serif;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+
+        }
+
+        section {
+            padding: 15px;
+        }
+
+        .welcome {
+            background-color: rgb(179, 212, 201);
+            background-image: url('https://thumbs.dreamstime.com/b/ambiente-ecologia-sem-emenda-teste-padr%C3%A3o-fundo-ambiental-70888728.jpg');
+            background-size: cover;
+        }
+
+        .welcome_div {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5.5em 2em;
+            color: rgb(222, 255, 226);
+            border-radius: 5px;
+        }
+
+        section h1 {
+            text-transform: capitalize;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+        }
+
+        .login {
+            color: #2E7D32;
+        }
+
+        .login_div {
+            padding: 5.5em 2em;
+            border-radius: 5px;
+        }
+
+        form span {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            align-content: center;
+            flex-wrap: nowrap;
+            margin-bottom: 5px;
+            background-color: #eefaefa6;
+            border-radius: 5px;
+            padding: 5px;
+
+            transition: .1s all;
+
+
+
+        }
+
+
+
+        label,
+        #btnEntrar {
+            cursor: pointer;
+            width: 20px;
+            background-color: #2e7d3228;
+            border-radius: 5px;
+            padding: 10px !important;
+            display: inline-block;
+            text-align: center;
+            top: 1px
+        }
+
+        input {
+            width: 100%;
+            border: 0;
+            border-radius: 5px;
+            padding: 5px;
+            background-color: transparent;
+
+        }
+
+        input:focus {
+            border: 0;
+            outline: 0;
+            background: transparent;
+        }
+
+        form span:has(input:focus) {
+            background-color: #2e7d3228;
+        }
+
+        #btnEntrar {
+            width: auto;
+            border: 0;
+            color: #2E7D32;
+            font-weight: bolder;
+            opacity: 1;
+        }
+
+        #btnEntrar:disabled {
+            pointer-events: none;
+            opacity: .5;
+        }
+
+        .welcome_footer {
+            bottom: 5px;
+        }
+
+        footer img {
+            max-width: 100px;
+            display: block;
+            margin: 5px;
+            filter: brightness(0) saturate(100%) invert(100%) sepia(99%) saturate(0%) hue-rotate(23deg) brightness(108%) contrast(100%);
+        }
+
+        footer {
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            background-color: #2e7d7275;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            gap: 6rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="welcome">
+            <div class="welcome_div">
+                <h1>bem vindo(a) de volta</h1>
+                <p>Faça login com suas credenciais abaixo para gerenciar suas preferências, acompanhar seus pedidos ou explorar conteúdos exclusivos.</p>
+
+        </section>
+
+        <section class="login">
+            <div class="login_div">
+                <form action="">
+                    <h1>Login</h1>
+                    <span>
+                        <input type="text" name="" id="email" placeholder="E-mail">
+                        <label for="email"><i class="fa-solid fa-user"></i> </label>
+
+                    </span>
+
+                    <span>
+                        <input type="password" name="" id="senha" placeholder="Senha">
+                        <label for="senha"><i class="fa-solid fa-key"></i></label>
+
+                    </span>
+
+                    <button type="button" id="btnEntrar" disabled>Entrar</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+
+    <script>
+        const btnEntrar = document.getElementById('btnEntrar');
+        const emailInput = document.getElementById('email');
+        const senhaInput = document.getElementById('senha');
+
+        /* metodo que o prof ensinou 
+        emailInput.oninput = validarFoco;
+        senhaInput.oninput = validarFoco;
+        */
+
+        emailInput.addEventListener('input', validarFoco);
+        senhaInput.addEventListener('input', validarFoco);
+
+
+        function validarFoco() {
+            if (emailInput.value.length > 0 && senhaInput.value.length > 0) {
+                btnEntrar.disabled = false;
+            } else {
+                btnEntrar.disabled = true;
+            }
+        }
+        btnEntrar.onclick = () => {
+            localStorage.setItem('email', emailInput.value);
+            window.location.href = 'parceiros.html';
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            console.log('Submissão do formulário prevenida');
+        });
+
+    </script>
+</body>
+
+</html>

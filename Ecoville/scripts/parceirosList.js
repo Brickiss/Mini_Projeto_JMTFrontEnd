@@ -18,7 +18,7 @@ function renderizarParceiros(parceirosFiltrados) {
         <span class="bairro">${parceiro.bairro}</span>
     `;
     card.onclick = () => {
-      window.location.href = `../pages/parceiros.html?id=${parceiro.id}`;
+      window.location.href = `../pages/parceiroDetales.html?id=${parceiro.id}`;
     };
     parceirosList.appendChild(card);
   });

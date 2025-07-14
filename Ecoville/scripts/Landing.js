@@ -1,7 +1,4 @@
-
-// window.alert('Dados enviados com sucesso!');
-
-// Pegar o formulário
+// Vai pegar o formulário pelo id da delimitação do form
 const form = document.getElementById('form-model');
 
 // Adicionar um "ouvinte" para quando o formulário for enviado
@@ -9,7 +6,7 @@ form.addEventListener('submit', function(event) {
     // Impedir que a página recarregue (comportamento padrão)
     event.preventDefault();
     
-    // Coletar todos os dados do formulário
+    //Vai coletar e armazenar todos os dados do formulário em formData
     const formData = new FormData(form);
     
     // Coletar os tipos de resíduos marcados
